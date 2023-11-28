@@ -59,4 +59,21 @@ console.log(
 function saludar(nombre, edad){
     console.log(`Hola mi nombre es ${nombre} y tengo ${edad} anios.`);
 }
-saludar(Kenie,7);
+saludar("Kenie",7);
+
+
+//=========================== funcion declarada vs funcion expresadas========================================
+
+funcionDeclarada();
+function funcionDeclarada(){
+    console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo, incluso antes de que la funcion sea declarada");
+}
+funcionDeclarada();
+// la funcion declarada no importa si se llama antes o despues
+
+
+//funcion anonima
+const funcionExpresada = function(){
+ console.log("esto es una funcion expresada, es decir una funcion que se le ha asignado como valor a una variable, si invocamos esta funcion antes de su definicion js nos dira cannot access")
+}
+funcionExpresada();
