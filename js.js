@@ -77,3 +77,88 @@ const funcionExpresada = function(){
  console.log("esto es una funcion expresada, es decir una funcion que se le ha asignado como valor a una variable, si invocamos esta funcion antes de su definicion js nos dira cannot access")
 }
 funcionExpresada();
+
+//================================== ARRAYS======================================================================
+const ab = [1,true,false,"hola",[2,3,4,['a','array dentro de otro dentro de otro','f']]];
+console.log(ab[4][3][1]);
+// otra forma de crear arrays
+const bc = Array.of("b","c",2);
+console.log(bc);
+// o tmb puede ser
+const be = Array(4).fill(false);
+console.log(be);
+
+const colores = ["rojo","verde","amarrilo","naranja"];
+colores.push("negro");
+console.log(colores);
+colores.pop();
+console.log(colores);
+// con forech recorrer el arrgelo y se pasa colores como parametro y el segundo, en este caso index es para que cada li tengo su id
+colores.forEach(function(pasando,index){
+    console.log(`<li id="${index}">${pasando}</li>`)
+});
+
+const articulos = [
+    {nombre:"bici", costo:"3000"},
+    {nombre:"tv rota", costo:"30"},
+    {nombre:"tv", costo:"2500"},
+    {nombre:"libro", costo:"200"},
+    {nombre:"celular", costo:"11000"},
+];
+let articulosFiltrados = articulos.filter(function(articulo){
+   return articulo.costo <= 500;
+});
+//filter nos deja filtrar, devuelve los valores coincidentes de la matrix de la collecion, verifica todos
+console.log(articulosFiltrados);
+
+//map nos ayuda a ver por categoria
+let nombreDeArticulos = articulos.map(function(articulo){
+    return articulo.nombre;
+});
+console.log(nombreDeArticulos);
+
+
+//find devuelve el primer valor que coincida
+
+let buscarArticulo = articulos.find(function(articulo){
+    return articulo.nombre === "celular";
+});
+console.log(buscarArticulo);
+
+//lo mismo para foreach
+let verObjetos = articulos.forEach(function(articulo){
+   console.log(articulo.nombre);
+});
+
+// some devuelve vdd o falso para articulos que cumplan la validacion
+var articulosBaratos = articulos.some(function(articulo){
+    return articulo.costo <= 700;
+});
+console.log(articulosBaratos);
+
+// ==================================================OBJETOS==============================================================
+
+const bruno = {
+    nombre: "bruno",
+    apellido: "nose",
+    edad:31,
+    pasatiempos: ['hacer ejercicio', 'leer mangas'],
+    soltero: false,
+    contacto:{
+        email:"jkhladsjklhdaskl@gmail.com",
+        movil: 23198321890091283
+    },
+    saludar:function(){
+        console.log('hola');
+    }
+}
+
+console.log(bruno);
+console.log(bruno.nombre);
+console.log(bruno.apellido);// al ser atributos por estar dentro d eun objeto se pueden llamar por punto
+// a las funciones dentro del objeto se les metodos
+console.log(bruno.contacto.email);
+bruno.saludar();
+console.log(Object.keys(bruno));//retorna todas los atributos que tenga el objeto
+console.log(Object.values(bruno)); //retorna los valores de los atributos
+console.log(bruno.hasOwnProperty("nombre"));// devuleve true si el objeto bruno tiene el atributo nombre adentro sino devuelve false
