@@ -162,3 +162,42 @@ bruno.saludar();
 console.log(Object.keys(bruno));//retorna todas los atributos que tenga el objeto
 console.log(Object.values(bruno)); //retorna los valores de los atributos
 console.log(bruno.hasOwnProperty("nombre"));// devuleve true si el objeto bruno tiene el atributo nombre adentro sino devuelve false
+
+
+
+
+let hora = 11.6;
+if(hora >= 0 && hora < 5){
+    console.log("Dejame dormir");
+}else if (hora > 5 && hora <= 11){
+    console.log("buenos dias");
+}else if(hora > 11 && hora <=18){
+    console.log("buenas tardes");
+}else{
+    console.log("buenas noches ");
+}
+
+//operad ternario 
+let edad = 19
+let eresEdad = (edad >= 18) ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(eresEdad);
+
+
+// for 
+let numeros = [10,20,30,40,50,60,70,80,44];
+
+for (let i = 0; i < numeros.length; i++) {
+     console.log(numeros[i]);
+}
+
+// for in es para OBJETOS - recorre propiedades de un obejto
+
+for (const llave in bruno) {
+  console.log(`key: ${llave}, Value:${bruno[llave]}`);
+}
+
+//for of permite recorrer todos los elementos de cualquier objetoi que sea iterable en js
+
+for (const elemento of numeros) {
+    console.log(elemento);
+}
