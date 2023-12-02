@@ -165,6 +165,7 @@ console.log(bruno.hasOwnProperty("nombre"));// devuleve true si el objeto bruno 
 
 
 
+// ============================CONDICIONALES ========================================================================
 
 let hora = 11.6;
 if(hora >= 0 && hora < 5){
@@ -196,8 +197,93 @@ for (const llave in bruno) {
   console.log(`key: ${llave}, Value:${bruno[llave]}`);
 }
 
-//for of permite recorrer todos los elementos de cualquier objetoi que sea iterable en js
+//for of permite recorrer todos los elementos de cualquier objetoi que sea iterable en js (arrays, strings)
 
 for (const elemento of numeros) {
     console.log(elemento);
 }
+
+//===================== try carch ================================================
+try {
+    // let numero = "y";
+    let numero = 3;
+if (isNaN(numero)) {// isnan es una metodo donde evaluas si el parametro es un numero 
+    throw new Error('el caracter introducido no es un numero');
+}
+console.log(numero * numero);
+} catch (error) {
+    console.log(`se produjo el siguiente error: ${error} `)
+}
+
+
+
+// ejercicio para saber si un numero es par o impar
+let num = [1,2,3,4,5,6,7,8,9,10,11];
+
+for (let i = 0; i < num.length; i++) {
+    if (i%2 != 1) {
+        console.log(num[i])
+    }
+   continue;
+   // breack en caso q despues del primer ciclo se detenga 
+    
+}
+
+
+// ========================================================= DESTRUCTURACION=================================================================
+
+// se trata de volver a convertir en variable los datos de un array u objeto, estilo capicua es decir:
+
+const alguien = {
+    nomb: "jaimico",
+    apelli:"suarez",
+    eda:10
+};
+
+let{nomb,apelli,eda} = alguien;
+console.log(nomb,apelli,eda);
+console.log(alguien);
+
+
+
+//========================================================OBJETOS LITERALES===================================================================================
+// se pueden declarar variables fuera de un objeto y que el mismo tome esas mismas variables
+
+
+let nam = 'nelson',
+    ag = 18;
+
+const ind = {
+    nam,
+    ag,
+    raza: "callejero",
+    //en ves de poner ej ladrar:function(){console.log("guau guau~!!!")}
+    ladrar(){
+        console.log("Guau guau~!!!")
+    }
+};
+console.log(ind);
+ind.ladrar();
+
+//============================================================= PARAMETRO REST================================================
+function sumar(a,b, ...c) {
+    let resultado = a + b;
+    c.forEach(function(n) {
+        resultado += n
+    });
+    return resultado;
+};
+
+console.log(sumar(1,2));
+console.log(sumar(1,2,3));
+console.log(sumar(1,2,3,4));
+console.log(sumar(1,2,3,4,5));
+console.log(sumar(1,2,3,4,5,6));
+
+
+
+
+
+
+
+
