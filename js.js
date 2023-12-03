@@ -266,6 +266,8 @@ console.log(ind);
 ind.ladrar();
 
 //============================================================= PARAMETRO REST================================================
+
+// son parametros que recibe una funcion 
 function sumar(a,b, ...c) {
     let resultado = a + b;
     c.forEach(function(n) {
@@ -280,8 +282,81 @@ console.log(sumar(1,2,3,4));
 console.log(sumar(1,2,3,4,5));
 console.log(sumar(1,2,3,4,5,6));
 
+//============================================================= spread operator================================================
+//se puede ejecutar en cualquier sentencia de nuestro codigo
+
+const arr1 = [1,2,3,4,5],
+    arr2 = [6,7,8,9];
+
+console.log(arr1,arr2);
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+//================================================================ARROW FUNCtion=====================================================
+let salu = function(nombre) {
+    console.log(`Hola ${nombre}`);
+};
+salu('Irma');
+
+let salu2 = nombre => console.log(`Hola ${nombre}`);
+salu2("Raul");
+
+// si se reciben dos parametros no se le puede sacar los parentesis
+
+let summa = (a,b) => a + b;
+console.log(summa(2,3));
 
 
+let numm = [1,2,3,4,5];
+numm.forEach(function(el,index) {
+    console.log(`${el} esta en la posicion ${index}`)
+});
+
+numm.forEach((el,index) => console.log(`${el} esta en la posicion ${index}`));
+
+
+//==========================================PROTOTIPOS POO==============================
+/* 
+    clases: modelo a seguir
+    Objetos:es una instancia de una clase
+    atributos:es una caracteristica o propiedad del obejto(son variables dentro de un objeto
+    metodos:son acciones que un objeto puede realizar(son funciones dentro de un objeto
+*/
+
+//funcion constructora
+
+// function Animal(nombre, genero){
+// atributos version 1
+// this.nombre = nombre;
+// this.genero = genero;
+// 
+// metodos
+// this.sonar = function(){
+    // console.log("Hago sonidos porque estoy vivo");
+// }
+// };
+// const snoopy = new Animal("snoopy","Macho"),
+// lolaBunny = new Animal("Lola Bunny", "Hembra");
+// 
+// console.log(snoopy);
+// console.log(lolaBunny);
+
+function Animal(nombre, genero){
+//atributos version 2 / asignamos los metodos al prototipo no a la funcion como tal
+this.nombre = nombre;
+this.genero = genero;
+};
+
+//metodos agregados al prototipo de la funcion constructora
+Animal.prototype.sonar = function(){
+    console.log("Hago sonidos porque estoy vivo");
+}
+const snoopy = new Animal("snoopy","Macho"),
+lolaBunny = new Animal("Lola Bunny", "Hembra");
+
+console.log(snoopy);
+console.log(lolaBunny);
+snoopy.sonar();
 
 
 
