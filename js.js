@@ -351,9 +351,64 @@ this.genero = genero;
 Animal.prototype.sonar = function(){
     console.log("Hago sonidos porque estoy vivo");
 }
-const snoopy = new Animal("snoopy","Macho"),
+
+
+
+
+//========================== HERENCIA PRTOTIPICA====================================================
+
+function Perro(nombre, genero, tamanio) {
+    this.super = Animal; 
+    this.super(nombre,genero);
+    this.tamanio = tamanio;
+};
+// hay que hacer que perro sea una instancia de animal
+//perro esta  heredando de animal
+Perro.prototype = new Animal();
+// hay que igualarlo al mismo constructor
+Perro.prototype.constructor = Perro;
+
+
+// sobreescritura del metodo del prototipo padre al hijo
+Perro.prototype.sonar = function() {console.log('Hago guau guau porque estoy vivo')};
+
+
+const snoopy = new Perro("snoopy","Macho", "mediano"),
 lolaBunny = new Animal("Lola Bunny", "Hembra");
 
+//=========================================================== CLASES Y HERENCIA==========================================
+// es la funcion constructora pero mas facil y mas legible
+
+class Animel{
+    //el constructor de una clase es un metodo especial que se ejecuta en el momento de la instancia clase
+    constructor(nombre,genero){
+        this.nombre = nombre;
+        this.genero = genero;
+    }
+    sonar(){ console.log("hago sonidos");}
+    saludar(){console.log(`Hola me llamo ${this.nombre}`);}
+}
+
+// herencia en clases
+
+class Gato extends Animel{
+    constructor(nombre,genero,tamanio){
+        super(nombre,genero);
+        this.tamanio = tamanio;
+    }
+    sonar(){console.log("soy un gato y hago miau miau")}
+};
+
+
+const mimi = new Gato("Mimi","Hembra","chico"),
+scooby = new Animel("Scooby", "Macho");
+
+
+console.log(mimi);
+mimi.sonar();
+mimi.saludar();
+console.log(scooby);
+scooby.saludar();
 console.log(snoopy);
 console.log(lolaBunny);
 snoopy.sonar();
