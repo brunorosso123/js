@@ -395,15 +395,30 @@ class Gato extends Animel{
     constructor(nombre,genero,tamanio){
         super(nombre,genero);
         this.tamanio = tamanio;
+        this.raza = null
     }
-    sonar(){console.log("soy un gato y hago miau miau")}
+    sonar(){console.log("soy un gato y hago miau miau")};
+    //un metodo estatico se pueden ejecutar sin necesidad de instanciar la clase
+    static queEres(){console.log("los gatos son felinos de 4 patas, 2 ojos y una boca")};
+    // los setters y getters son metodos expeciales que nos permiten establecer y obtener valores de atributos de nuestra clase
+    //la raza se puso nula
+
+    get getRaza(){
+        return this.raza
+    }
+
+    set setRaza(raza){
+        this.raza = raza;
+    }
+
 };
 
 
 const mimi = new Gato("Mimi","Hembra","chico"),
 scooby = new Animel("Scooby", "Macho");
 
-
+Gato.queEres();
+//mimi.queEres(); no se puede ejecutar, los metodos statics son solo para la clase
 console.log(mimi);
 mimi.sonar();
 mimi.saludar();
@@ -412,6 +427,9 @@ scooby.saludar();
 console.log(snoopy);
 console.log(lolaBunny);
 snoopy.sonar();
+console.log(mimi.getRaza);
+mimi.setRaza = "normalita";
+console.log(mimi.getRaza);
 
 
 
