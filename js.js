@@ -432,6 +432,49 @@ mimi.setRaza = "normalita";
 console.log(mimi.getRaza);
 
 
+//Objeto console
+
+console.log(console);//muestra un registro de lo que a pasado en nuestra ap[licacion 
+console.error("esto es un error"); // al dar errpr va a saltar este texto
+console.warn("esto es un aviso"); // sale un aviso en la consola
+console.info("esto es un mensaje informativo");
+// console.clear(); limpia la consola
+console.log(document); // document es la representacion del documento de html a travez de js, mediante los nodos y elementos podemos acceder a las etiquetas de html
+console.dir(window);// muestra todas las propiedades, metodos y constructores
+
+console.group("esto es un grupo de console"); // arma un grupo de los console
+console.log("js");
+console.log("html");
+console.log("css");
+console.log("angular");
+console.log("react");
+console.groupEnd();
+
+// time cuanto tiempo demora en ejecutar la funcion
+console.time("veremos cuanto tarda mi pc");
+const arreglo = Array(1000000);
+for (let i = 0; i < arreglo.length; i++){
+arreglo[i]=i;
+};
+console.timeEnd("veremos cuanto tarda mi pc");
+
+let x = 3,
+y =2,
+pruebaXY = "Se espera que X siempre sea menor que Y";
+
+console.assert(x<y,{x,y,pruebaXY});
+
+
+
+
+
+let nombree = "Jhon",
+apellidoo = "Mircha",
+edadd = 35;
+
+console.log(nombree,apellidoo,edadd);
+
+
 
 
 
