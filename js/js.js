@@ -464,15 +464,139 @@ pruebaXY = "Se espera que X siempre sea menor que Y";
 
 console.assert(x<y,{x,y,pruebaXY});
 
-
-
-
-
 let nombree = "Jhon",
 apellidoo = "Mircha",
 edadd = 35;
 
 console.log(nombree,apellidoo,edadd);
+
+//=====================OBJETO DATE ==========================================
+console.clear();
+console.log(Date());
+
+let fecha = new Date()
+    console.log(fecha.getDate()); // te da el dia del mes
+    console.log(fecha.getDay()); //los dias de la semana los representa de domingo a sabado siendo 0 domingo
+    console.log(fecha.getMonth()); // enero es 0
+    console.log(fecha.getFullYear());
+    console.log(fecha.getHours());
+    console.log (fecha.getMinutes());
+    console.log(fecha.getSeconds());
+    console.log(fecha.getMilliseconds());
+    console.log(fecha.toDateString());// devuelve la fecha sin el gmt
+    console.log(fecha.toLocaleString());// en formato de numeros
+    console.log(fecha.toLocaleDateString()); // sin la hora
+    console.log(fecha.toLocaleTimeString()); // solo la hora
+    console.log(fecha.getUTCDay());// ambos pasan referencia al gmt  a 0, es decir que muestra el parametro sin la diferencia horaria
+    console.log(fecha.getUTCHours());// ambos pasan referencia al gmt  a 0, es decir que muestra el parametro sin la diferencia horaria
+    console.log(Date.now()); // cuantos milisegundos pasaron desde 1970, se llama time stamp
+    let cumpleBruno = new Date (1992, 10, 5 );
+    console.log(cumpleBruno);
+
+    // ============================OBJETO MATH===========================
+    // es un objeto estatico, cada vez q lo queramos invocar tenemos que invocar al prototipo
+
+    console.log(Math);// aparece todoas las funciones y parametrso que tiene la funcion
+    console.log(Math.PI); // muestra el numero pi
+    console.log(Math.abs(-7.8)); // muestra el basoluto del numero pasado entre parametros
+    console.log(Math.ceil(8.9));// lo redonde al numero entero posterior inmediato
+    console.log(Math.floor(6.9)); //lo redondea al numero entero anterior
+    console.log(Math.round(6.4)); // redonde al numero entero mas cercano, enterior o posterior
+    console.log(Math.sqrt(81)); // para allar la raiz cuadrada
+    console.log(Math.pow(2, 5)); // para allar la potencia en este caso 2 a la 5
+    console.log(Math.sign(-7.8)); // devuelve -1 si es negativo 1 si es positivo 0 sale 0
+    console.log(Math.random()); // da un numero random
+    console.log(Math.round(Math.random() * 1000));
+
+    //==================================================== OPERADOR DE CORTOCIRCUITO==============================
+    // cortocircuito OR cuando el valor de la izquierdca en la expresion siempre pueda validar a true, es el valor que se crgara por defecto
+
+    function saludar(nombre){
+        nombre = nombre || "desconocido"; // parametro cortocircuito
+        console.log(`Hola, ${nombre}`);
+    }
+    saludar("Bruno");
+    saludar();
+    // cortocircuito AND cuando el valor de la izquierda en la expresion siempre pueda validad false, es el valor que se cargara por defecto
+
+    console.log(false && "este es el valor de la derecha"); // como la primera es false manda ese parametro
+    console.log(-2 && 'la derecha'); // en este caso es un numero y da positivo, el valor que salta es el de la derecha
+
+    //================= ALERT CONFIRM PROMPT====================================================
+    // console.log(window);
+    // let alerta = alert("esto es una alerta"),
+        // confirmacion = confirm("esto es una confirmacion"),
+        // aviso = prompt("ingrese un valor");
+// 
+    //===================================== Expresiones regulares ==============================
+    // son una secuencia de caracteres que forma un patron de busqueda, principalmente utilizada para la busqueda de patrones de cadena de caracteres
+
+    let cadena = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+
+ let exprReg = new RegExp("are", "ig");// i ignorma entre mayusucula y minuscula y g busca todas, no se queda en la primera coincidencia
+ console.log(exprReg.test(cadena));
+ console.log(exprReg.exec(cadena));
+ // o tmb se puede escribir
+ let ExpReg2 = /slightly/i;
+
+ console.log(ExpReg2.test(cadena));
+ console.log(ExpReg2.exec(cadena));
+
+
+ let ExpReg3 = /\d/;
+ console.log(ExpReg3.test(cadena));
+ console.log(ExpReg3.exec(cadena));
+
+
+/*
+Coincidencias Basicas
+.       - Cualquier Caracter, excepto nueva linea
+\d      - Cualquier Digitos (0-9)
+\D      - No es un Digito (0-9)
+\w      - Caracter de Palabra (a-z, A-Z, 0-9, _)
+\W      - No es un Caracter de Palabra.
+\s      - Espacios de cualquier tipo. (espacio, tab, nueva linea)
+\S      - No es un Espacio, Tab o nueva linea.
+
+Limites
+\b      - Limite de Palabra
+\B      - No es un Limite de Palabra
+^       - Inicio de una cadena de texto
+$       - Final de una cadena de texto
+
+Cuantificadores:
+*       - 0 o Más
++       - 1 o Más
+?       - 0 o Uno
+{3}     - Numero Exacto
+{3,4}   - Rango de Numeros (Minimo, Maximo)
+
+Conjuntos de Caracteres
+[]      - Caracteres dentro de los brackets
+[^ ]    - Caracteres que NO ESTAN dentro de los brackets
+
+Grupos
+( )     - Grupo
+|       - Uno u otro
+*/ 
+//[\w.'+_-]+@[a-zA-z-.]+.[a-zA-z]+ lo hice en regexr.com
+
+//=====================================FUNCIONES ANONIMAS AUTOEJECUTABLES=========================================
+// funciones donde englobas las funciones que quieres ejecutar
+
+(function () {
+    console.log("mi primer ife")
+})();
+
+(function (d,w,c) {
+    console.log("mi segunda ife");
+    console.log(d);
+    c.log("abreviando console")
+})(document,window,console);
+
+
+
+
 
 
 
