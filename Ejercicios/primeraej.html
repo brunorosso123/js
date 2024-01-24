@@ -80,7 +80,7 @@
              if (!isNaN(cadena)) return console.error("El valor ingresado es un Numero");
             else  console.log(cadena.split('').reverse(cadena).join("")); // split separa los numeros convirtiendo el string en un array, reverse los da vuelta y join une
             }
-            cadenaInvertida(333);
+            cadenaInvertida("hola");
 
          //Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
          let contarCadena = (cadena = "", texto ="") => {
@@ -95,7 +95,7 @@
             let cont = 0,
             i=0;
 
-           while (i!==-1) {
+           while (i!==-1) { // a -1 porque al usar indexof, si encuentra va a poner la posicion si no lo encuentra un -1
             i = cadena.indexOf(texto,i)
            if (i!==-1){
            i++;
@@ -106,21 +106,554 @@
         }
          contarCadena("hola hola nose que poner pero tiene que ser un hola texto" ,"hola" );
          // Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+         
+         let palindromo = (palabra = "") =>{
+            if(!palabra) return console.warn("no ingresaste una palabra")
+            palabra = palabra.toLocaleLowerCase();
+            if (palabra.at(0) === palabra.at(-1) && palabra.at(1) === palabra.at(-2) && palabra.at(2) === palabra.at(-3) && palabra.at(3) === palabra.at(-4) && palabra.at(4) === palabra.at(-5) && palabra.at(5) === palabra.at(-6) && palabra.at(6) === palabra.at(-7))
+            console.log(` la palabra "${palabra}"es un palindromo`);
+         else  console.log(`la palabra "${palabra}" no es un palindromo`);
+         };
+         palindromo("salas mundo salas");                                                                                                
+
          //Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 
+         const eliminarCaracteres = (texto="", patron = "") => {
+            if(!texto) return console.warn("no ingresaste una palabra")
+            texto = texto.toLocaleLowerCase();
+            console.log(texto.replaceAll( patron , ""));
+         }
+         eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "x");
 
-
+         const eliminarCaracteres2 = (texto='', patron ='') => {
+            (!texto) 
+            ? console.warn("no ingresaste una palabra")
+            : (!patron)
+            ? console.warn("no ingresaste un parametro")
+            : console.info(texto.replace(new RegExp(patron, "ig"),''))
+         };
+         eliminarCaracteres2 ("xyz1, xyz2, xyz3, xyz4 y xyz5", "x");
 
          //Programa una función que obtenga un numero aleatorio entre 501 y 600.
          let sortear = (min,max) => console.log(Math.round((Math.random()*100) + 500));
         sortear();
 
          //Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+         let capicua = (palabra = "") =>{
+         if(isNaN(palabra)) return console.warn("no ingresaste un numero")
+         palabra = palabra.toLocaleLowerCase();
+         if (palabra.at(0) === palabra.at(-1) && palabra.at(1) === palabra.at(-2) && palabra.at(2) === palabra.at(-3) && palabra.at(3) === palabra.at
+          (-4) && palabra.at(4) === palabra.at(-5) && palabra.at(5) === palabra.at(-6) && palabra.at(6) === palabra.at(-7))
+             console.log(` el numero "${palabra}" es un capicua`);
+          else  console.log(`el numero "${palabra}" no es un capicua`);
+          };
+          capicua("10011");                                                                                                
          //Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
-         
-         
-        
+         let factorial = (n="")=>{
+          switch (true) {
+            case (isNaN(n)):
+                  console.error("no es un numero");
+               break;
+            case (n == ""):
+            console.warn("ingrese un numero ");
+            break;
+            case (Math.sign(n) === -1):
+               console.error("el numero no puede ser negativo");
+               break;
+            case (n === 0):
+               console.error("el numero no puede ser 0");
+               break;
+            case(!isNaN(n)):
+            
+            let fact = 1;
+            for (let i = n; i > 1; i--) {
+               fact = fact *i;
+            }
+            console.log(fact);
 
-    </script>
+            let fac = 1;
+            for (let ii = 1; n >= ii; ii++){
+               fac = fac* ii;
+               
+            }
+            console.log(fac);
+           
+            break;      
+            default: console.log("dato ingresado no valido")
+               break;
+          }
+         }
+         factorial(5);
+
+         //Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+         let primo = (n="")=>{
+  switch (true) {
+    case (isNaN(n)):
+          console.error("no es un numero");
+       break;
+    case (n == ""):
+    console.warn("ingrese un numero ");
+    break;
+    case (Math.sign(n) === -1):
+       console.error("el numero no puede ser negativo");
+       break;
+    case (n === 0):
+       console.error("el numero no puede ser 0");
+       break;
+       case (n === 2):
+       console.log(`el numero ${n} es primo`);
+       break;
+       case (n === 1):
+console.log(`el numero ${n} no es primo`);
+break;
+    case(!isNaN(n)):
+    let divisible=false;
+    for(let i = 2; i<n ; i++){
+      if ((n%i) === 0){
+         divisible=true;
+         
+         break;
+      }
+      console.log(n%i);
+    }
+    return(divisible)
+    ? console.log(`el numero ${n} no es primo`)
+    :console.log(`el numero ${n} es primo`)
+   
+    break;      
+    default: console.log("dato ingresado no valido")
+       break;
+  }
+ }
+ primo(111);
+
+//Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+let parImpar = (n="") =>{
+    if(isNaN(n)) return console.error(`${n} no es un numero`);
+    if(Math.sign(n) === -1) return console.warn("ingrese un numero positivo");
+   if(n === 0) return console.log(`el numero ingresado ${n} es par`)
+
+     
+      // if((n%2)=== 1) {
+      // console.log(`el numero ${n} es impar`)}
+      // else{
+         // console.log(`el numero ${n} es par`)
+      // }
+      return ((n%2) === 1)
+      ? console.log(`el numero ${n} es impar`)
+      : console.log(`el numero ${n} es par`);
+      }
+      parImpar(1110);
+         //Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+    let grados = (n="", g ="") =>{
+      if(isNaN(n)) return console.error(`${n} no es un numero`);
+      if (g.toLocaleLowerCase() === "c"){
+          m = Math.round((n* 9/5) + 32);
+             console.log(`los ${n}°C equivalen a ${m}°F `);
+      }
+      else if (g.toLocaleLowerCase() === "f"){
+       m = Math.round((n - 32) * 5/9);
+       console.log(`los ${n}°F equivalen a ${m}°C `);
+      }  
+      else{
+            console.warn("ingrese un parametro especifico")   
+      }
+   }
+   grados(32,'f')
+
+
+// Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+function rellenarCeros(numero, digitos, base = 10){
+    let num = Math.abs(numero).toString(base)
+        let len = num.split('.',1)[0].length
+        let signo = numero<0?'-':'';
+    
+    return signo + '0'.repeat(Math.max(0,digitos-len)) + num;
+}
+console.log(rellenarCeros(139,10,2));
+
+let decimalABase = (n='', digitos="", base=10) =>{
+ let num = Math.abs(n).toString(base);
+ let separar = num.split(".",1) [0].length;
+ let signo = num<0 
+            ? "-"
+            : "";
+      
+      return signo + "0".repeat(Math.max(0,digitos-separar)) + num;
+}
+
+console.log(decimalABase(10001011,10,10));
+
+
+let convertirBinarioDecimal = (n=undefined, base= undefined) => {
+   if (base === 2){
+   return console.log(`el numero ${n} base ${base} = ${parseInt(n,base)} base 10 `);
+   }
+   else if (base === 10){
+       return console.log(`el numero ${n} base ${base} = ${n.toString(base)} base 2 `);
+   }
+}
+convertirBinarioDecimal(139,10);
+
+// Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+let porcentaje = (n=undefined, porcen=0) =>{
+   if(n === undefined) return console.warn("ingrese el monto")
+   if(isNaN(n)) return console.error(`${n} no es un numero`);
+   if(n===0) return console.error("no se pueden aplicar el porcentaje a 0")
+   if( Math.sign(n) === -1) return console.error(`no se pueden poner numeros negativos`)
+   if( Math.sign(porcen) === -1) return console.error(`no se pueden poner numeros negativos`)
+   if(porcen === 0) return console.log(`su cuenta es ${n}`)
+   let num = (n * porcen) / 100
+   let resultado = n - num
+   console.log(` el ${porcen}% de ${n} es ${num}, quedando su cuenta en ${resultado}`)
+}
+porcentaje(200,0)
+
+
+// Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+
+
+let fechaa = (anio, mes,dia) =>{
+let fe = new Date();
+console.log(fe.getFullYear() - anio , fe.getMonth() - mes, fe.getDate() - dia) 
+
+
+}
+fechaa(1994,5,5);
+
+let calcularAnios = (fecha = undefined) =>{
+   let hoyMenosLaFecha = new Date().getTime() - fecha.getTime();
+   let aniosEnMS = 1000 * 60 * 60 * 24 *365
+   let aniosHumanos = Math.floor(hoyMenosLaFecha/aniosEnMS)
+
+}
+//Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+let contarConVoc = (texto="")=>{
+   if (texto === "") return console.warn("ingrese un texto a evaluar");
+   if (!isNaN(texto)) return console.warn("ingrese texto, no numeros");
+   texto = texto.toLocaleLowerCase().split("");
+   vocales=0;
+   total=0;
+   vacio=0;
+   simbolos=0;
+   while (texto.length > 0) {
+      n = texto.pop();
+    //console.log(n) // probando 
+    if(/![].,;:'{}@#$%^&=()/.test(n)){simbolos++}
+    if(n == " "){vacio++}
+    if(n = "b"){total++}
+    if(/[aeiouáéíóúü]/i.test(n)){vocales++}
+   //  if(m == "e"){i++}
+   //  if(m == "i"){i++}
+   //  if(m == "o"){i++}
+   //  if(m == "u"){i++}
+   }
+   console.log(simbolos);
+   console.log(total);
+   console.log(vacio);
+
+   return console.log(` hay un total de ${total - simbolos - vacio} consonantes, ${vocales} vocales y ${total} es el total`);
+}
+
+contarConVoc("holaa!  je");// todavia no entiendo porque no funciona 
+
+
+let contarLetNum = (cadena="")=>{
+   //if (cadena === "") return console.warn("ingrese un texto a evaluar");
+      let vocales = 0,
+      consonantes = 0,
+      numeros = 0,
+      espacios = 0,
+      total = 0;
+      cadena = cadena.toString().toLocaleLowerCase();
+
+      for (let letra of cadena){
+         if(/[aeiouáéíóúü]/i.test(letra)){vocales++};
+         if(/[qwrtypsdfghjklzxcvbnm]/i.test(letra)){consonantes++}
+         if(/[\d]/i.test(letra)){numeros++}
+         if(/\s/.test(letra)){espacios++}
+         if(/./.test(letra)){total++}
+      }
+      (cadena != "")
+      ? console.log(`en el texto tiene ${total}  digitos en los que hay ${numeros} numeros, ${consonantes} consonantes, ${vocales} vocales, ${total - numeros - consonantes - vocales - espacios} simbolos y ${espacios} espacios`)
+      :console.warn("Dato no valido,ingrese texto a evaluar"); 
+   };
+   
+contarLetNum("hola");
+//Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+let validarNombre=(cadena="")=>{
+   if (cadena === "") return console.warn("ingrese un texto a evaluar");
+   cadena = cadena.toString().toLocaleLowerCase();
+   let verdad;
+   if(/^[a-z]+\s+[a-z]+$/g.test(cadena)){verdad=true}
+  //let expReg = /^[a-z]+\s+[a-z]+$/g.test(cadena);
+
+  //return (expReg)
+  //?console.log(`ingreso correctamente el nombre ${cadena}`)
+  //:console.log("intente nuevamente ")
+   (verdad==true)
+   ?console.log("ingreso correctamente un nombre")
+   :console.log("intente nuevamente ")
+   
+}
+validarNombre("jon mircha")
+//Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+let validarMail=(cadena="")=>{
+   if (cadena === "") return console.warn("ingrese un texto a evaluar");
+   cadena = cadena.toString().toLocaleLowerCase();
+   let verdad;
+   //if(/^[a-z]+\s+[a-z]+$/g.test(cadena)){verdad=true}
+   if(/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/ig.test(cadena)){verdad=true}
+  //let expReg = /^[a-z]+\s+[a-z]+$/g.test(cadena);
+
+  //return (expReg)
+  //?console.log(`ingreso correctamente el nombre ${cadena}`)
+  //:console.log("intente nuevamente ")
+   (verdad==true)
+   ?console.log("ingreso correctamente el mail")
+   :console.log("intente nuevamente ")
+   
+}
+validarMail("jonmircha@gmail.com");
+
+//Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+const potencia=(arrf="",pot="")=>{
+   if(arrf==="") return console.warn("escriba numeros deseados para elevarlos a la potencia que le ponga");
+   if(Math.sign(arrf) === -1) return console.error("dijite un numero positivo");
+   if(!(arrf instanceof Array)) return console.error("no ingresaste un arrgelo")
+   if(arrf.length === 0) return console.error("el arreglo esta vacio")
+   if(pot==="") return console.warn("ingrese potencia deseada");
+   if(Math.sign(pot) === -1) return console.error("dijite un numero positivo");
+   if(isNaN(pot)) return console.warn("ingrese solo numeros ");
+
+
+//   arrf.forEach(element => {
+//      if(typeof element !== 'number') return console.error(`el valor "${element}" ingresado, No es un numero`)
+//   //console.log(Math.pow(element,pot))
+//
+//});
+for (let num of arrf){
+   if(typeof num !== 'number') return console.error(`el valor "${num}" ingresado, No es un numero`)
+}
+let newArr = arrf.map(num => Math.pow(num,pot))
+return console.info(`arreglo orgiginal: ${arrf}. \nArreglo elevado al ${pot}: ${newArr}`)
+
+}
+potencia([3,3,4],2);
+//Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+let comparable=(arr="")=>{
+   if(arr==="") return console.warn("escriba numeros deseados para elevarlos a la potencia que le ponga");
+   if(!(arr instanceof Array)) return console.error("no ingresaste un arrgelo");
+   if(arr.length === 0) return console.error("el arreglo esta vacio")
+
+
+   for (let num of arr){
+         if(typeof num !== 'number') return console.error(`el valor "${num}" ingresado, No es un numero`);
+   }
+   let min = Math.min(...arr);
+   let max = Math.max(...arr);
+   
+   
+   return console.log(min,max)
+   
+}
+
+comparable([3,4,5,-6])
+
+let numeross = [ 67, 6, 23, 11, 100, 8, 3, 93, 0, 17, 24, 7, -2, 33, 45, 28, 33, 23, -12, 99, 100 ];
+
+let min = numeross[0];
+let max = numeross[0]
+
+for (var i = 0; i < numeross.length ; i++) {
+    if (numeross[i] < min) {
+        console.log('Anterior minimo: ' + min + ', nuevo minimo: ' + numeross[i]);
+        min = numeross[i];
+    }
+    if(numeross[i]>max){
+      console.log('Anterior maximo: ' + max + ', nuevo maximo: ' + numeross[i]);
+      max = numeross[i]
+    }
+}
+console.log('Valor mínimo: ' + min);
+console.log('Valor maximo: ' + max);
+//Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+
+let parImparArray =(arr="")=>{
+   if (!(arr instanceof Array)) return console.error(`${arr} no es un array`);
+
+   let impar=false;
+   for (num of arr){
+      if(typeof num !== 'number') return console.error(`el valor "${num}" ingresado, No es un numero`);
+      if(Math.sign(num) === -1)return console.warn('numero negativo');
+   }
+   return console.info({
+      pares:arr.filter(num=>num%2 === 0),
+      impares:arr.filter(num => num%2 === 1)
+   })
+}
+
+parImparArray([0,2,3,5])
+
+
+
+
+const devuelve = (_arreglo = undefined) => {
+  if (_arreglo === undefined) return console.log(`El arreglo esta vacio`);
+  if (!(_arreglo instanceof Array))
+    return console.log(`No ingreso un arreglo de numeros`);
+  if (_arreglo.length === 0)
+    return console.log(`No ingreso valores al arreglo`);
+  for (const valor of _arreglo) {
+    if (typeof valor !== "number")
+      return console.log(`Debe ingresar solo numeros`);
+  }
+  let _par = [];
+  let _impar = [];
+  let u = 0,
+    p = 0;
+  for (let i = 0; i < _arreglo.length; i++) {
+    if (_arreglo[i] % 2 === 0) {
+      _par[p] = _arreglo[i];
+      p++;
+    } else {
+      _impar[u] = _arreglo[i];
+      u++;
+    }
+  }
+  console.log({
+    _par,
+    _impar,
+  });
+};
+devuelve();
+devuelve([]);
+devuelve(["a", 3]);
+devuelve([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+
+
+// Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+let ordenados =(arr="")=>{
+   if(arr === "") return console.error("ingrese una serie de numeros, arreglo vacio");
+   if (!(arr instanceof Array)) return console.error("ingrese una serie de numeros");
+   for (num of arr){
+      if(typeof num !== 'number') return console.error(`el valor "${num}" ingresado, No es un numero`);
+   }
+
+   return console.info({
+      arr:arr,
+      asc:arr.map(el => el ).sort(),
+      desc:arr.map(el => el).sort().reverse()
+   });
+}
+
+
+ordenados([2,1,3])
+
+
+rangoPaso(10, 2, 2);
+
+function rangoPaso(start, end, paso){
+    let contar = [];
+    
+    if (start < end){
+        
+        for(let i = start; i <= end; i += paso){
+            contar.push(i);
+        }
+    }else{
+        for(let j = start; j >= end; j -= paso){
+            contar.push(j);
+        }
+    }
+    console.log(contar);
+}
+// Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+let eliminarDuplicados=(arr=undefined)=>{
+ if(arr ===undefined) return console.warn("no ingresaste un arreglo de numeros");
+ if(arr.length ===0) return console.warn("el arreglo esta vacio");
+ if(arr.length ===1) return console.warn("el arreglo tiene que tener almenos 2 elementos");
+ if(!(arr instanceof Array)) return console.warn("el valor que ingresaste no es un arreglo");
+
+ return console.log({
+   original:arr,
+   SinDuplicado:arr.filter((value,index,self)=>self.indexOf(value)===index)
+   // sinDuplicado:[...new Set(arr)]
+ })
+}
+eliminarDuplicados(['naranja','pera','manzana','banana','pera','kiwi'])
+
+// devolver un tipo de suscripcion con un solo if y un objeto
+let suscripcion=(sus="")=>{
+   let tipos ={
+      free: "Solo puedes tomar los cursos gratis",
+      basic: "Puedes tomar casi todos los cursos de Platzi durante un mes",
+      expert: "Puedes tomar casi todos los cursos de Platzi durante un año",
+      experDuo: "Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año"
+   }
+   let suss = sus.toLowerCase();
+
+   for(ver in tipos){
+      if(suss === ver){
+         console.log(tipos[ver])
+      }
+   }
+}
+   // let mas = Object.keys(ma) // convierto en un array los tipos de suscripcion
+   // if(mas.find(sus)){ // si el parametro pasado esta dentro de los tipos de suscripcion devuelve true, y se ejecuta el codigo
+      // console.log(ma.values(sus)) // 
+   // }
+   suscripcion("Free")
+
+
+
+
+
+
+// Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+let promedio= (arr=undefined)=>{
+   if(arr ===undefined) return console.warn("no ingresaste un arreglo de numeros");
+if(arr.length ===0) return console.warn("el arreglo esta vacio");
+if(arr.length ===1) return console.warn("el arreglo tiene que tener almenos 2 elementos");
+if(!(arr instanceof Array)) return console.warn("el valor que ingresaste no es un arreglo");
+
+return console.log({
+   promedio:arr.reduce((prev,next)=>prev + next,0)/arr.length
+})
+}
+promedio([1,2,3,4,5,6,7,8,9,0])
+
+
+
+
+/*Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+*/
+</script>
 </body>
 </html>
