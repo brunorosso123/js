@@ -39,7 +39,6 @@ let btn2 = document.querySelector('#btnCalcular2');
 let resultado = document.querySelector('#resultado');
 
 
-
 let btnOnClick = (event)=>{ event.preventDefault(); let suma = Number(input1.value) + parseInt(input2.value)
     resultado.innerText = "Resultado de la suma es: " + suma
 }
