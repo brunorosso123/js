@@ -1,0 +1,36 @@
+.cajita{
+    display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 30px;  
+}
+.parte1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.parte2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.parte2 p{
+    font-size: larger;
+    text-align: center;
+}
+.parte2 ul{
+    list-style: none;
+}
+.parte2 ul li{
+    border: 1px blue solid;
+    border-radius: 30%;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: aqua;
+    font-weight: 600;
+    padding: 5px;
+}
+.parte1 .precio{
+    height: 30px;
+    width: 90%;
+}

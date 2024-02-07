@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Curso Practico JS de Plat🇿i</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
     <p class="primer-parrafo"> soy el primer parrafo</p>
     <p class="segundo-parrafo">soy el segundo parrafo</p>
     <p class="tercer-parrafo">soy el tercer parrafo</p>
-    <input type="text" class="in" placeholder="escriba algo aqui" />
+    <input type="text" class="in" id='innn' placeholder="escriba algo aqui" />
 
     <p id="pid">para poner la imagen</p>
 
@@ -24,6 +25,33 @@
     
 </form>
 <p id="resultado"></p>
+
+
+<div class="cajita">
+    <div class="parte1">
+        <input type="number" class="precio" id="precio" placeholder="Ingrese el monto del producto">
+    </div>
+    <div class="parte2">
+        <p>seleccione el cupon que tenga</p>
+        
+            <input id="li1" value="50" class="no yes" type="checkbox">
+            <input id="li2" value="10" class="no yes" type="checkbox">
+            <input id="li3" value="15" class="no yes" type="checkbox">
+        
+    </div>
+    <div class="parte3">
+        <button class="cal">Calcular</button>
+        <p id="res"></p>
+    </div>
+
+</div>
+
+<!-- <form class="ford "> -->
+    <input class="numeritos" type="number">
+    <button class="but" onclick="devolver()">Calcular promedio de numeros ingresados</button>
+    <p class="resss"></p>
+    <p class="ingresados"></pc>
+    <!-- </form> -->
 
     <script src="/js/js-de-curso-practico-js.js"></script>
 </body>
