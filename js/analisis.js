@@ -155,3 +155,49 @@ function aumentoPorEmpresas(nombre){
     // un ejemplo https://pipemalz.github.io/12_practico_javascript_math/
 
 
+    // ambito lexico, la accesibilidad de las variables esta determinada por la posicion de las mismas dentro de los ambitos anidados
+let lolo = 0;
+function fruitt(){
+    let lololo =1;
+    console.log(lolo);
+
+    function leuis(){
+        let lolololo =2;
+        console.log(lolo,lololo);
+
+        function chill(){
+            console.log(lolo,lololo,lolololo);
+        }
+        return chill();
+    }
+    return leuis();
+}
+
+fruitt();
+
+
+function createPetList() {
+  let datosDeMascota = [];
+  return function datoMascota(el) {
+    if(el){
+        datosDeMascota.push(el)
+
+    }
+    return datosDeMascota;
+}
+}
+const myPetList = createPetList();
+console.log(myPetList('gato'));
+console.log(myPetList('perro'));
+console.log(myPetList('tu vieja'));
+
+
+
+function multiplyElements(array) {
+    let doble = array.map(index => index * 2);
+    return doble
+ }
+
+ nameOfDog("Elmo"); function nameOfDog(name) { console.log(name); }; 
+
+
