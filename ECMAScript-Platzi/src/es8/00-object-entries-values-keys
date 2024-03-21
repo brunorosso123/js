@@ -1,0 +1,5 @@
+const countries = {MX:"Mexico",CL:'Chile',PE:'Peru'};
+
+console.log(Object.entries(countries));//[ [ 'MX', 'Mexico' ], [ 'CL', 'Chile' ], [ 'PE', 'Peru' ] ]
+console.log(Object.keys(countries));//[ 'MX', 'CL', 'PE' ]
+console.log(Object.values(countries));//[ 'Mexico', 'Chile', 'Peru' ]

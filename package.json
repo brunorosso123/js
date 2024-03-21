@@ -1,0 +1,23 @@
+{
+  "name": "curso-ecmascript",
+  "version": "1.0.0",
+  "description": "aprendiendo js de jonmircha y platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunorosso123/js.git"
+  },
+  "keywords": [
+    "javascript",
+    "ecmascript"
+  ],
+  "author": "Dfift",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brunorosso123/js/issues"
+  },
+  "homepage": "https://github.com/brunorosso123/js#readme"
+}
