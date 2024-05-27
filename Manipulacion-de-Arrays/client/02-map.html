@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const products = [
+            {title:'Burger', price:123},
+            {title:'Pizza', price:12},
+        ]
+        const app = document.getElementById('app');
+         const lis = products.map(item => {
+            return `<li> ${item.title} - ${item.price}`
+         })
+
+    </script>
+    
+</body>
+</html>

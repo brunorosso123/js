@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOREACH</title>
+</head>
+<body>
+    
+
+    <div id="app"></div>
+    <script>
+       const app = document.getElementById('app');
+
+const tasks = [
+    { title: 'make dinner', done: false },
+    { title: 'sweep the floor', done: true },
+    { title: 'feed the kittens', done: false },
+    { title: 'buy groceries', done: false },
+    { title: 'take a bath', done: true },
+];
+
+tasks.forEach(({ title, done }) => {
+    const element = `
+         <li>
+          	 <input 
+                     type='checkbox' 
+                     ${done && 'checked'} />
+                  <label>${title} </label>   
+         </li>`;
+app.insertAdjacentHTML('beforeend', element);});
+    </script>
+</body>
+</html>
